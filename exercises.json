@@ -1,0 +1,186 @@
+[
+  {
+    "exercise_id": "MATH_QE_001",
+    "topic": "equazioni_secondo_grado",
+    "type": "parametric",
+    "title": "Equazione di secondo grado a partire dalle radici",
+    "difficulty_levels": [
+      "easy",
+      "medium",
+      "hard"
+    ],
+    "random_params": {
+      "x1": {
+        "easy": {
+          "min": -5,
+          "max": 5
+        },
+        "medium": {
+          "min": -10,
+          "max": 10
+        },
+        "hard": {
+          "min": -6,
+          "max": 6,
+          "denominators": [
+            2,
+            3,
+            4
+          ]
+        }
+      },
+      "x2": {
+        "easy": {
+          "min": -5,
+          "max": 5
+        },
+        "medium": {
+          "min": -10,
+          "max": 10
+        },
+        "hard": {
+          "min": -6,
+          "max": 6,
+          "denominators": [
+            2,
+            3,
+            4
+          ]
+        }
+      },
+      "a": {
+        "easy": {
+          "min": 1,
+          "max": 1
+        },
+        "medium": {
+          "min": 1,
+          "max": 3
+        },
+        "hard": {
+          "min": 1,
+          "max": 3,
+          "times": "den(x1)*den(x2)"
+        }
+      }
+    },
+    "constraints": {
+      "all": [
+        "x1 < x2",
+        "x1 + x2 != 0",
+        "x1 != 0",
+        "x2 != 0"
+      ],
+      "easy": [
+        "x2 - x1 <= 8"
+      ],
+      "medium": [
+        "abs(x1 + x2) <= 15"
+      ],
+      "hard": [
+        "abs(b) <= 100",
+        "abs(c) <= 300"
+      ]
+    },
+    "formulas": {
+      "b": {
+        "expr": "-a*(x1 + x2)",
+        "text": "b = −a·(x1 + x2)",
+        "text_values": "b = −{a}·({x1} + {x2})"
+      },
+      "c": {
+        "expr": "a*x1*x2",
+        "text": "c = a·x1·x2"
+      },
+      "b2": {
+        "expr": "b**2",
+        "text": "b²",
+        "text_values": "{b:paren}²"
+      },
+      "ac4": {
+        "expr": "4*a*c",
+        "text": "4ac",
+        "text_values": "4·{a}·{c:paren}"
+      },
+      "delta": {
+        "expr": "b2 - ac4",
+        "text": "Δ = b² − 4ac",
+        "text_values": "Δ = {b2} − {ac4:paren}"
+      },
+      "sqrt_delta": {
+        "expr": "sqrt(delta)",
+        "text": "√Δ"
+      },
+      "minus_b": {
+        "expr": "-b",
+        "text": "−b"
+      },
+      "two_a": {
+        "expr": "2*a",
+        "text": "2a"
+      },
+      "root_minus": {
+        "expr": "(minus_b - sqrt_delta)/two_a",
+        "text": "x = (−b − √Δ) / (2a)",
+        "text_values": "x = ({minus_b} − {sqrt_delta}) / {two_a}"
+      },
+      "root_plus": {
+        "expr": "(minus_b + sqrt_delta)/two_a",
+        "text": "x = (−b + √Δ) / (2a)",
+        "text_values": "x = ({minus_b} + {sqrt_delta}) / {two_a}"
+      }
+    },
+    "problem_template": "Risolvi l'equazione di secondo grado: {a:lead_x²}{b:term_x}{c:signed} = 0",
+    "correct_solution": "x1 = {x1}, x2 = {x2}",
+    "intermediate_steps": [
+      {
+        "description": "Calcola {formula_b2}, dove b = {b} è il coefficiente di x",
+        "value": "b2",
+        "hints": [
+          "Elevare al quadrato significa moltiplicare il numero per se stesso: se b è negativo il segno meno sparisce.",
+          "Sostituisci il valore: {formula_b2_values} = {b:paren}·{b:paren}."
+        ]
+      },
+      {
+        "description": "Calcola {formula_ac4}, dove a = {a} e c = {c}",
+        "value": "ac4",
+        "hints": [
+          "Moltiplica tra loro 4, a e c: attenzione al segno di c.",
+          "Sostituisci i valori: {formula_ac4_values}."
+        ]
+      },
+      {
+        "description": "Calcola il discriminante: {formula_delta}",
+        "value": "delta",
+        "hints": [
+          "Sottrai il risultato del passaggio 2 da quello del passaggio 1.",
+          "Sostituisci i risultati dei passaggi precedenti: {formula_delta_values}."
+        ]
+      },
+      {
+        "description": "Calcola la radice quadrata del discriminante, {formula_sqrt_delta}",
+        "value": "sqrt_delta",
+        "hints": [
+          "Cerca il numero che, elevato al quadrato, dà Δ: Δ è un quadrato perfetto.",
+          "Prova con i quadrati dei numeri vicini: 1, 4, 9, 16, 25, 36, 49, 64, 81, 100, 121, 144…"
+        ]
+      },
+      {
+        "description": "Calcola la radice minore con {formula_root_minus}",
+        "value": "root_minus",
+        "hints": [
+          "Il segno meno davanti alla radice dà la soluzione più piccola.",
+          "Ricorda che −b = {minus_b} e che 2a = {two_a}: {formula_root_minus_values}."
+        ]
+      },
+      {
+        "description": "Calcola la radice maggiore con {formula_root_plus}",
+        "value": "root_plus",
+        "hints": [
+          "Come prima, ma con il segno più davanti alla radice.",
+          "Ricorda che −b = {minus_b} e che 2a = {two_a}: {formula_root_plus_values}."
+        ]
+      }
+    ]
+  }
+]

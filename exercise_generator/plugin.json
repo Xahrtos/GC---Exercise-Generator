@@ -1,0 +1,10 @@
+{
+    "name": "Exercise Generator",
+    "description": "Tutor di matematica socratico: genera esercizi parametrici o da dataset e guida lo studente passo passo.",
+    "author_name": "Student",
+    "plugin_url": "",
+    "tags": "exercises, math, tutor, parametric",
+    "thumb": "",
+    "version": "1.0.0",
+    "dependencies": []
+}
